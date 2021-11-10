@@ -22,7 +22,13 @@ app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
 
 
 app.get('/' , (req: Request, res: Response) => {
-    res.render('index/index')
+    axios.get("https://devgramapi.herokuapp.com/mainpage")
+    .then(function (response: any){
+        const headers = response.data[0].Mainheading
+        // console.log(headers)
+        res.render('index/index')
+
+    })
 })
 
 app.listen(PORT, ():void => {
