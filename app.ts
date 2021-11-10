@@ -18,6 +18,8 @@ app.use('/fonts' , express.static(__dirname + 'public/fonts'))
 app.use('/img' , express.static(__dirname + 'public/img'))
 app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
 
+
+
 // mysql test connection
 
 var dbConfig = {
@@ -31,7 +33,7 @@ var dbConfig = {
           encrypt: true
       }
    };
-
+// conncetions databse
    function Conncet(){
        
  var conn = new sql.ConnectionPool(dbConfig);
@@ -74,7 +76,9 @@ app.get('/' , (req: Request, res: Response) => {
     })
 })
 
-app.get()
+app.get('/signup') , (req: Request, res: Response) => {
+
+}
 
 
 
