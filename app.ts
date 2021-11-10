@@ -25,8 +25,15 @@ app.get('/' , (req: Request, res: Response) => {
     axios.get("https://devgramapi.herokuapp.com/mainpage")
     .then(function (response: any){
         const headers = response.data[0].Mainheading
+        const subheaders = response.data[0].subMain
+        const waitlist = response.data[1].headers
         // console.log(headers)
-        res.render('index/index')
+        res.render('index/index', {
+            headers: headers,
+            subheaders: subheaders,
+            waitlist: waitlist,
+
+        })
 
     })
 })
