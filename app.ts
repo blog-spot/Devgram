@@ -74,6 +74,10 @@ app.get('/' , (req: Request, res: Response) => {
     })
 })
 
+app.get()
+
+
+
 app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);
   });
