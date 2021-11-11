@@ -76,13 +76,15 @@ app.get('/' , (req: Request, res: Response) => {
     })
 })
 
-app.get('/login') , (req: Request, res: Response) => {
-    res.render('login/login')
 
-}
+
 
 app.get('/register' , (req: Request, res: Response) => {
     res.render('register/register')
+})
+
+app.get('/login' , (req: Request, res: Response) => {
+    res.render('login/login.ejs')
 })
 
 
