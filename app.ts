@@ -82,7 +82,11 @@ app.get('/' , (req: Request, res: Response) => {
 app.get('/register' , (req: Request, res: Response) => {
     res.render('register/register')
 })
+// app.post functions are
 
+app.post('/register' , (req: Request, res: Response) => {
+    req.body.email 
+})
 app.get('/login' , (req: Request, res: Response) => {
     res.render('login/login.ejs')
 })
