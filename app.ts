@@ -76,10 +76,14 @@ app.get('/' , (req: Request, res: Response) => {
     })
 })
 
-app.get('/signup') , (req: Request, res: Response) => {
+app.get('/login') , (req: Request, res: Response) => {
+    res.render('login/login')
 
 }
 
+app.get('/register' , (req: Request, res: Response) => {
+    res.render('register/register')
+})
 
 
 app.listen(PORT, ():void => {
