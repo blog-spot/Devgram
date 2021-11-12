@@ -6,8 +6,7 @@ const PORT = process.env.PORT || 3000;
 const axios = require('axios');
 var sql = require("mssql");
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.set('view engine' , 'ejs')
 
@@ -81,11 +80,15 @@ app.get('/' , (req: Request, res: Response) => {
 
 app.get('/register' , (req: Request, res: Response) => {
     res.render('register/register')
+    var email = req.body.email
+    console.log(email)
 })
+
 // app.post functions are
 
 app.post('/register' , (req: Request, res: Response) => {
-    req.body.email 
+    var email = req.body.email 
+    console.log(email)
 })
 app.get('/login' , (req: Request, res: Response) => {
     res.render('login/login.ejs')
