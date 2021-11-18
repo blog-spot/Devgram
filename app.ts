@@ -53,10 +53,6 @@ app.get('/register' , (req: Request, res: Response) => {
 
 // app.post functions are
 
-app.post('/register' , (req: Request, res: Response) => {
-    var email = req.body.email 
-    console.log(email)
-})
 app.get('/login' , (req: Request, res: Response) => {
     res.render('login/login.ejs')
 })
