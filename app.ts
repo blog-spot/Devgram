@@ -29,7 +29,7 @@ app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
 //Google  Routes
 app.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/error', (req, res) => res.send('Unknown Error'))
-app.get('/api/account/google', passport.authenticate('google', { failureRedirect: '/auth/error' }),
+app.get('/api/google/account', passport.authenticate('google', { failureRedirect: '/auth/error' }),
   function(req, res) {
     res.redirect('/');
   }
