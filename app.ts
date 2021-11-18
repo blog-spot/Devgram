@@ -5,6 +5,10 @@ var bodyParser = require('body-parser');
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
 const axios = require('axios');
+const passport = require('passport');
+require('./auth')
+const cookieSession = require('cookie-session')
+
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,7 +26,14 @@ app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
 
 
 
-
+//Google  Routes
+app.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
+app.get('/auth/error', (req, res) => res.send('Unknown Error'))
+app.get('/api/account/google', passport.authenticate('google', { failureRedirect: '/auth/error' }),
+  function(req, res) {
+    res.redirect('/');
+  }
+);
 
 
 
