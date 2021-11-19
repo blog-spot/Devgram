@@ -65,12 +65,12 @@ app.get('/' , (req: Request, res: Response) => {
 
 
 
-s
+
 // app.post functions are
 
-app.get('/login' , (req: Request, res: Response) => {
-    res.render('login/login.ejs')
-})
+// app.get('/login' , (req: Request, res: Response) => {
+//     res.render('login/login.ejs')
+// })
 
 
 app.listen(PORT, ():void => {
