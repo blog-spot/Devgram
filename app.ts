@@ -7,13 +7,22 @@ const PORT = process.env.PORT || 3000;
 const axios = require('axios');
 const passport = require('passport');
 require('./auth')
+const isLoggedIn = require('./Middleware/middleWare')
 const cookieSession = require('cookie-session')
 
+app.use(cookieSession({
+    name: 'google-auth-session',
+    keys: ['key1', 'key2']
+  }))
+  app.use(passport.initialize());
+  app.use(passport.session());
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 app.set('view engine' , 'ejs')
+
+
 
 // setting up static files
 app.use(express.static('public'))
@@ -56,13 +65,7 @@ app.get('/' , (req: Request, res: Response) => {
 
 
 
-
-app.get('/register' , (req: Request, res: Response) => {
-    res.render('register/register')
-    var email = req.body.email
-    console.log(email)
-})
-
+s
 // app.post functions are
 
 app.get('/login' , (req: Request, res: Response) => {
