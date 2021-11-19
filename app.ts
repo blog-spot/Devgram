@@ -10,6 +10,7 @@ require('./auth')
 const isLoggedIn = require('./Middleware/middleWare')
 const cookieSession = require('cookie-session')
 
+
 app.use(cookieSession({
     name: 'google-auth-session',
     keys: ['key1', 'key2']
@@ -40,10 +41,9 @@ app.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }
 app.get('/auth/error', (req, res) => res.send('Unknown Error'))
 app.get('/api/google/account', passport.authenticate('google', { failureRedirect: '/auth/error' }),
   function(req, res) {
-    res.redirect('/user/main');
+    res.redirect('/profile');
   }
 );
-
 
 
 app.get('/' , (req: Request, res: Response) => {
@@ -63,9 +63,10 @@ app.get('/' , (req: Request, res: Response) => {
     })
 })
 
-app.get('/user/main' ,isLoggedIn, (req: Request, res: Response) => {
-    res.send(`Welcome ${req.user.username}`)
+app.get('/profile' , (req: Request, res: Response) => {
+    res.write("WELCOME")
 })
+
 
 
 
