@@ -6,18 +6,22 @@ const app:Application = express();
 const PORT = process.env.PORT || 3000;
 const axios = require('axios');
 const passport = require('passport');
-require('./auth')
 const isLoggedIn = require('./Middleware/middleWare')
-const cookieSession = require('cookie-session')
+require ('./auth')
 
+import session from 'express-session';
 
-app.use(cookieSession({
-    name: 'google-auth-session',
-    keys: ['key1', 'key2']
-  }))
-  app.use(passport.initialize());
-  app.use(passport.session());
+app.set('trust proxy', 1) // trust first proxy
 
+app.use(session({
+  secret: 'keyboard cat',
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }
+}))
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
@@ -33,17 +37,16 @@ app.use('/img' , express.static(__dirname + 'public/img'))
 app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
 
 
-
-
-
-//Google  Routes
 app.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/error', (req, res) => res.send('Unknown Error'))
 app.get('/api/google/account', passport.authenticate('google', { failureRedirect: '/auth/error' }),
-  function(req, res) {
+  function(req:Request, res:Response) {
     res.redirect('/profile');
   }
 );
+
+
+
 
 
 app.get('/' , (req: Request, res: Response) => {
@@ -59,17 +62,20 @@ app.get('/' , (req: Request, res: Response) => {
             waitlist: waitlist,
 
         })
-
     })
 })
 
-app.get('/profile' , (req: Request, res: Response) => {
-    res.write("WELCOME")
+app.get('/profile' ,isLoggedIn, (req: Request, res: Response)=> {
+  res.send("HI")
 })
 
 
-
-
+//Logout
+app.get('/logout',(req,res)=>{
+  req.session.destroy(function (err) {
+    res.redirect('/'); //Inside a callback… bulletproof!
+   });
+})
 // app.post functions are
 
 // app.get('/login' , (req: Request, res: Response) => {
@@ -80,3 +86,4 @@ app.get('/profile' , (req: Request, res: Response) => {
 app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);
   });
+
