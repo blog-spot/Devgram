@@ -66,7 +66,7 @@ app.get('/' , (req: Request, res: Response) => {
 })
 
 app.get('/profile' ,isLoggedIn, (req: Request, res: Response)=> {
-  res.send("HI")
+  res.send(`Welcome`)
 })
 
 
