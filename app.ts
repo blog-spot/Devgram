@@ -1,5 +1,5 @@
 
-import express, {Request,Response,Application} from 'express';
+import express, {Request,Response,Application, NextFunction} from 'express';
 import * as fs from 'fs';
 var bodyParser = require('body-parser');
 const app:Application = express();
@@ -65,8 +65,8 @@ app.get('/' , (req: Request, res: Response) => {
     })
 })
 
-app.get('/profile' ,isLoggedIn, (req: Request, res: Response)=> {
-  res.send(`Welcome`)
+app.get('/profile' ,isLoggedIn, (req: Request, res: Response, next: NextFunction)=> {
+  
 })
 
 
