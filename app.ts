@@ -5,9 +5,9 @@ var bodyParser = require('body-parser');
 const app:Application = express();
 const PORT = process.env.PORT || 3000;
 const axios = require('axios');
-const passport = require('passport');
 const isLoggedIn = require('./Middleware/middleWare')
 require ('./auth')
+import passport from 'passport';
 
 import session from 'express-session';
 
@@ -47,8 +47,6 @@ app.get('/api/google/account', passport.authenticate('google', { failureRedirect
 
 
 
-
-
 app.get('/' , (req: Request, res: Response) => {
     axios.get("https://devgramapi.herokuapp.com/mainpage")
     .then(function (response: any){
@@ -65,9 +63,25 @@ app.get('/' , (req: Request, res: Response) => {
     })
 })
 
-app.get('/profile' ,isLoggedIn, (req: Request, res: Response, next: NextFunction)=> {
-  
+// export class CRequest extends Request {
+//   user?: string;
+//   //add stuff to constructor etc
+
+// }
+
+
+
+app.get('/profile' ,isLoggedIn, (req: Request, res: Response)=> {
+  res.send(`welcome`)
+  if (req !== undefined) {
+    console.log(req.user.displayName)
+  }else{
+    // do something
+    console.log('not working')
+    
+  }
 })
+
 
 
 //Logout
