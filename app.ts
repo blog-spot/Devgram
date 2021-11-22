@@ -1,3 +1,12 @@
+declare global {
+  namespace Express {
+      interface User {
+          // your custom properties
+          user?:string;
+          displayName?:string;
+      }
+  }
+}
 
 import express, {Request,Response,Application, NextFunction} from 'express';
 import * as fs from 'fs';
@@ -47,6 +56,7 @@ app.get('/api/google/account', passport.authenticate('google', { failureRedirect
 
 
 
+
 app.get('/' , (req: Request, res: Response) => {
     axios.get("https://devgramapi.herokuapp.com/mainpage")
     .then(function (response: any){
@@ -73,13 +83,8 @@ app.get('/' , (req: Request, res: Response) => {
 
 app.get('/profile' ,isLoggedIn, (req: Request, res: Response)=> {
   res.send(`welcome`)
-  if (req !== undefined) {
-    console.log(req.user.displayName)
-  }else{
-    // do something
-    console.log('not working')
-    
-  }
+  req.user?.displayName;
+  
 })
 
 
@@ -100,4 +105,3 @@ app.get('/logout',(req,res)=>{
 app.listen(PORT, ():void => {
     console.log(`Server Running here ⚡  https://localhost:${PORT}`);
   });
-
