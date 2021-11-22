@@ -23,7 +23,7 @@ import mongoose from 'mongoose';
 
 // mongooseconncetion 
 
-mongoose.connect('mongodb+srv://Udhay:udhay123@devgram.x4ikw.mongodb.net/Waitlist?retryWrites=true&w=majority');
+mongoose.connect('mongodb+srv://Udhay:udhay123@devgram.x4ikw.mongodb.net/Devgram?retryWrites=true&w=majority');
 var db=mongoose.connection;
 db.on('error', console.log.bind(console, "connection error"));
 db.once('open', function(callback){
@@ -95,12 +95,36 @@ app.get('/' , (req: Request, res: Response) => {
 
 
 
-app.get(`/login}` ,isLoggedIn, (req: Request, res: Response)=> {
-  res.send(`welcome ${req.user?.displayName}`)
-  
+app.get(`/profile` ,isLoggedIn, (req: Request, res: Response)=> {
+  fs.readFile('./views/dummy.ejs' , function(err,data){
+    res.writeHead(200, {'Context-type': 'text/html'});
+    res.write(data);
+    return res.end();
 })
 
 
+  res.send(`welcome ${req.user?.displayName}`)
+  
+  
+})
+
+app.get('/profile/yourblogs' , isLoggedIn, (req: Request, res: Response)=> {
+  fs.readFile('./views/blogs/blogs.ejs' , function(err,data){
+    res.writeHead(200, {'Context-type': 'text/html'});
+    res.write(data);
+    return res.end();
+  })
+  res.send("UR BLOGS")
+
+
+
+  var blogs = req.body.blogs
+
+})
+
+app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
+  res.send("WRITE BLOGS")
+})
 
 //Logout
 app.get('/logout',(req,res)=>{
