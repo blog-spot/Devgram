@@ -5,6 +5,7 @@ declare global {
           user?:string;
           displayName?:string;
           name?: string;
+          giveName?: string;
       }
   }
 }
@@ -82,10 +83,8 @@ app.get('/' , (req: Request, res: Response) => {
 
 
 
-app.get('/profile' ,isLoggedIn, (req: Request, res: Response)=> {
-  res.send(`welcome`)
-  req.user?.displayName;
-  console.log(req.user?.name)
+app.get(`/login}` ,isLoggedIn, (req: Request, res: Response)=> {
+  res.send(`welcome ${req.user?.displayName}`)
   
 })
 
