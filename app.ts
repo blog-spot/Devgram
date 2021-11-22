@@ -96,28 +96,16 @@ app.get('/' , (req: Request, res: Response) => {
 
 
 app.get(`/profile` ,isLoggedIn, (req: Request, res: Response)=> {
-  fs.readFile('./views/dummy.ejs' , function(err,data){
-    res.writeHead(200, {'Context-type': 'text/html'});
-    res.write(data);
-    return res.end();
-})
 
 
-  res.send(`welcome ${req.user?.displayName}`)
+res.render('dummy/dummy')
   
   
 })
 
 app.get('/profile/yourblogs' , isLoggedIn, (req: Request, res: Response)=> {
-  fs.readFile('./views/blogs/blogs.ejs' , function(err,data){
-    res.writeHead(200, {'Context-type': 'text/html'});
-    res.write(data);
-    return res.end();
-  })
+
   res.send("UR BLOGS")
-
-
-
   var blogs = req.body.blogs
 
 })
