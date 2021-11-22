@@ -114,7 +114,7 @@ app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
 })
 
 app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
-  req.body.blog
+  console.log(req.body.blog)
 
 })
 //Logout
