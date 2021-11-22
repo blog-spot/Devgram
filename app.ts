@@ -105,15 +105,18 @@ res.render('dummy/dummy')
 
 app.get('/profile/yourblogs' , isLoggedIn, (req: Request, res: Response)=> {
 
-  res.send("UR BLOGS")
-  var blogs = req.body.blogs
+res.send("UR BLOGS")
 
 })
 
 app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
-  res.send("WRITE BLOGS")
+  res.render('blogs/blogs')
 })
 
+app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
+  req.body.blog
+
+})
 //Logout
 app.get('/logout',(req,res)=>{
   req.session.destroy(function (err) {
