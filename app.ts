@@ -115,6 +115,7 @@ app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
 
 app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
   var userBlog = req.body.blog;
+  console.log(req.body.Author)
 
   var blogs_data = {
     "userBlog": userBlog
