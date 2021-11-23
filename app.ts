@@ -114,7 +114,19 @@ app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
 })
 
 app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
-  console.log(req.body.blog)
+  var userBlog = req.body.blog;
+
+  var blogs_data = {
+    "userBlog": userBlog
+
+  }
+
+  db.collection('Blogs').insertOne(blogs_data, function(err , collection) {
+    if(err) throw err;
+    // if everything passes in mongodb
+    console.log("Your blog was Successfully Saved")
+  })
+
 
 })
 //Logout
