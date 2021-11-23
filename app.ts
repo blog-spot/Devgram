@@ -6,6 +6,7 @@ declare global {
           displayName?:string;
           name?: string;
           giveName?: string;
+          userBlog?: string;
       }
   }
 }
@@ -134,7 +135,7 @@ app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
   // db collection find.one
   db.collection('Blogs').find().toArray(function(err,data){
     if (err) throw err;
-    var allblogs = data;
+    var allblogs = data.[0].userBlog;
     res.render('userblogs/userblogs', {
       allblogs: data
     })
