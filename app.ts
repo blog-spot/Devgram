@@ -6,11 +6,18 @@ declare global {
           displayName?:string;
           name?: string;
           giveName?: string;
-          userBlog?: string;
       }
   }
 }
 
+declare global{
+  namespace mongodb {
+    interface data {
+      // custom properties
+      userBlog?:string;
+    }
+  }
+}
 
 import express, {Request,Response,Application, NextFunction} from 'express';
 import * as fs from 'fs';
@@ -135,10 +142,9 @@ app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
   // db collection find.one
   db.collection('Blogs').find().toArray(function(err,data){
     if (err) throw err;
-    var allblogs = data.[0].userBlog;
-    res.render('userblogs/userblogs', {
-      allblogs: data
-    })
+    console.log(data?.[0].userBlog)
+
+    res.render('userblogs/userblogs')
 
 
   })
