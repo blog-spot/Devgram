@@ -96,9 +96,10 @@ app.get('/' , (req: Request, res: Response) => {
 
 
 app.get(`/profile` ,isLoggedIn, (req: Request, res: Response)=> {
-
-
-res.render('dummy/dummy')
+  const Username = req.user?.displayName
+res.render('dummy/dummy', {
+  Username: Username
+})
 
 
 })
@@ -115,10 +116,11 @@ app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
 
 app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
   var userBlog = req.body.blog;
-  console.log(req.body.Author)
+  var username = req.body.Author
 
   var blogs_data = {
-    "userBlog": userBlog
+    "userBlog": userBlog,
+    "Username" : username
 
   }
 
