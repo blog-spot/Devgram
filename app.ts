@@ -21,7 +21,7 @@ require ('./auth')
 import passport from 'passport';
 import mongoose from 'mongoose';
 
-// mongooseconncetion 
+// mongooseconncetion
 
 mongoose.connect('mongodb+srv://Udhay:udhay123@devgram.x4ikw.mongodb.net/Devgram?retryWrites=true&w=majority');
 var db=mongoose.connection;
@@ -29,7 +29,7 @@ db.on('error', console.log.bind(console, "connection error"));
 db.once('open', function(callback){
     console.log("connection succeeded");
 })
-  
+
 
 
 import session from 'express-session';
@@ -99,8 +99,8 @@ app.get(`/profile` ,isLoggedIn, (req: Request, res: Response)=> {
 
 
 res.render('dummy/dummy')
-  
-  
+
+
 })
 
 app.get('/profile/yourblogs' , isLoggedIn, (req: Request, res: Response)=> {
