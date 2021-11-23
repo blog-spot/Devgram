@@ -105,9 +105,7 @@ res.render('dummy/dummy', {
 })
 
 app.get('/profile/yourblogs' , isLoggedIn, (req: Request, res: Response)=> {
-
-res.send("UR BLOGS")
-
+  res.render('userblogs/userblogs')
 })
 
 app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
