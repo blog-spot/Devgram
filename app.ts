@@ -10,6 +10,7 @@ declare global {
   }
 }
 
+
 import express, {Request,Response,Application, NextFunction} from 'express';
 import * as fs from 'fs';
 var bodyParser = require('body-parser');
@@ -104,18 +105,6 @@ res.render('dummy/dummy', {
 
 })
 
-app.get('/profile/:Username' , isLoggedIn, (req: Request, res: Response)=> {
-  res.render('userblogs/userblogs')
-
-  db.collection('Blogs').findOne(function err,result){
-    Username: req.params.Username
-    if(err) then throw err;
-
-  }
-
-)
-
-})
 
 app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
   res.render('blogs/blogs')
@@ -139,6 +128,20 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 
 
 })
+
+app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
+
+  // db collection find.one
+  db.collection('Blogs').find().toArray(function(err,data){
+    if (err) throw err;
+    console.log(data)
+    res.render('userblogs/userblogs')
+
+
+  })
+
+})
+
 //Logout
 app.get('/logout',(req,res)=>{
   req.session.destroy(function (err) {
