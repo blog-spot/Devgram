@@ -104,8 +104,17 @@ res.render('dummy/dummy', {
 
 })
 
-app.get('/profile/yourblogs' , isLoggedIn, (req: Request, res: Response)=> {
+app.get('/profile/:Username' , isLoggedIn, (req: Request, res: Response)=> {
   res.render('userblogs/userblogs')
+
+  db.collection('Blogs').findOne(function err,result){
+    Username: req.params.Username
+    if(err) then throw err;
+
+  }
+
+)
+
 })
 
 app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
