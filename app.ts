@@ -144,11 +144,12 @@ app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
   db.collection('Blogs').find().toArray(function(err,data){
     if (err) throw err;
     data?.forEach(element => {
-
       console.log(element)
-
+      var allBlogs = JSON.stringify(element)
     });
-    res.render('userblogs/userblogs')
+    res.render('userblogs/userblogs', {
+      allBlogs: allBlogs
+    })
 
   })
 
