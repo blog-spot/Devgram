@@ -137,24 +137,54 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 
 
 })
+// PREV CODE 
 
+// app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
+//   // db collection find.one
+//   db.collection('Blogs').find().toArray(function(err,data){
+//     if (err) throw err;
+//     data?.forEach(element => {
 
-app.get('/profile/yourblogs', isLoggedIn, async (req: Request , res: Response) => {
-  // query the database to fetch all the documents
-  // TODO: don't forget error handling
-  const result = await db.collection('Blogs').find()
-  // result is basically an "Array" of "Documents (objects)"
+//       console.log(element)
 
-  // once you fetched the documents
-  // you reshape its structure however you want
-  // its called transforming
-  const myArray = result.map(document => JSON.stringify(document))
+//       var allBlogs = JSON.stringify(element)
+//     });
+//     res.render('userblogs/userblogs')
+//     res.render('userblogs/userblogs', {
+//       allBlogs: allBlogs
+//     })
 
-  // Then you can pass the new structure to the template engine
+//   })
+
+app.get('/pull', async (req: Request, res: Response) => {
+  const results = await db.collection('Blogs').find().toArray();
+ 
+  const list = results.map(document => JSON.stringify(document));
+  // console.log(list)
   res.render('userblogs/userblogs' , {
-    Allblogs: myArray
+    allBlogs: list
   })
+
 })
+
+
+// app.get('/profile/yourblogs', isLoggedIn, async (req: Request , res: Response) => {
+//   // query the database to fetch all the documents
+//   // TODO: don't forget error handling
+//   const result = await db.collection('Blogs').find()
+//   // result is basically an "Array" of "Documents (objects)"
+
+//   // once you fetched the documents
+//   // you reshape its structure however you want
+//   // its called transforming
+//   const myArray = result.map(document => JSON.stringify(document))
+//   console.log(myArray)
+
+//   // Then you can pass the new structure to the template engine
+//   res.render('userblogs/userblogs' , {
+//     Allblogs: myArray
+//   })
+// })
 
 
 //Logout
