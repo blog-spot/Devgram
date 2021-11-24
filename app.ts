@@ -137,6 +137,8 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 
 
 })
+var data;
+var element;
 
 app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
 
@@ -146,11 +148,11 @@ app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
     data?.forEach(element => {
       var allBlogs = JSON.stringify(element)
 
-      res.render('userblogs/userblogs', {
-        allBlogs: element
-      })
-    });
 
+    });
+    res.render('userblogs/userblogs', {
+      allBlogs: element
+    })
 
   })
 
