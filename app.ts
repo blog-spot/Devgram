@@ -15,6 +15,7 @@ declare global{
     interface data {
       // custom properties
       userBlog?:string;
+      array?: string;
     }
   }
 }
@@ -142,14 +143,12 @@ app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
   // db collection find.one
   db.collection('Blogs').find().toArray(function(err,data){
     if (err) throw err;
-    data?.array.forEach(element => {
+    data?.forEach(element => {
+
       console.log(element)
 
+      res.render('userblogs/userblogs')
     });
-
-
-    res.render('userblogs/userblogs')
-
 
   })
 
