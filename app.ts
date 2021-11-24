@@ -147,8 +147,8 @@ app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
 
       console.log(element)
 
-      res.render('userblogs/userblogs')
     });
+    res.render('userblogs/userblogs')
 
   })
 
