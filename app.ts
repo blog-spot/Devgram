@@ -142,7 +142,7 @@ app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
   // db collection find.one
   db.collection('Blogs').find().toArray(function(err,data){
     if (err) throw err;
-    console.log(data?.[0].userBlog)
+    console.log(data?.[1].userBlog)
 
     res.render('userblogs/userblogs')
 
