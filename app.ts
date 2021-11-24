@@ -137,23 +137,21 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 
 
 })
-var data;
-var element;
+
 
 app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
 
+var element;
   // db collection find.one
   db.collection('Blogs').find().toArray(function(err,data){
     if (err) throw err;
     data?.forEach(element => {
-      var allBlogs = JSON.stringify(element)
-
+      JSON.stringify(element)
 
     });
-    res.render('userblogs/userblogs', {
-      allBlogs: element
+    res.render('userblogs/userblogs' , {
+      Allblogs: element
     })
-
   })
 
 })
