@@ -139,22 +139,23 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 })
 
 
-app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
+app.get('/profile/yourblogs', isLoggedIn, async (req: Request , res: Response) => {
+  // query the database to fetch all the documents
+  // TODO: don't forget error handling
+  const result = await db.collection('Blogs').find()
+  // result is basically an "Array" of "Documents (objects)"
 
-var element;
-  // db collection find.one
-  db.collection('Blogs').find().toArray(function(err,data){
-    if (err) throw err;
-    data?.forEach(element => {
-      JSON.stringify(element)
+  // once you fetched the documents
+  // you reshape its structure however you want
+  // its called transforming
+  const myArray = result.map(document => JSON.stringify(document))
 
-    });
-    res.render('userblogs/userblogs' , {
-      Allblogs: element
-    })
+  // Then you can pass the new structure to the template engine
+  res.render('userblogs/userblogs' , {
+    Allblogs: myArray
   })
-
 })
+
 
 //Logout
 app.get('/logout',(req,res)=>{
