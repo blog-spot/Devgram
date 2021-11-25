@@ -115,6 +115,9 @@ res.render('dummy/dummy', {
 
 })
 
+/* */
+
+
 
 app.get('/profile/Writeblogs' , isLoggedIn, (req: Request, res:Response)=> {
   res.render('blogs/blogs')
@@ -195,6 +198,8 @@ app.get('/logout',(req,res)=>{
 // app.get('/login' , (req: Request, res: Response) => {
 //     res.render('login/login.ejs')
 // })
+
+
 
 
 app.listen(PORT, ():void => {
