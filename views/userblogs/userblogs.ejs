@@ -6,12 +6,11 @@
   </head>
   <body>
     <h1>Your  blogs</h1>
-
     <ul>
-  <% allBlogs.forEach(function(doc) { %>
-    <li>Username: <%= doc %></li>
-  <% }); %>
-  </ul>
+      <% items.forEach(function(doc) { %>
+        <li>Userblog: <%= doc.userBlog %></li>
+      <% }); %>
+    </ul>
 
     </body>
 </html>

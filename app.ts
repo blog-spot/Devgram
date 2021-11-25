@@ -20,6 +20,7 @@ declare global{
   }
 }
 
+
 import express, {Request,Response,Application, NextFunction} from 'express';
 import * as fs from 'fs';
 var bodyParser = require('body-parser');
@@ -156,15 +157,11 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 
 //   })
 
-app.get('/pull', async (req: Request, res: Response) => {
-  const results = await db.collection('Blogs').find().toArray();
- 
-  const list = results.map(document => JSON.stringify(document));
-  // console.log(list)
-  res.render('userblogs/userblogs' , {
-    allBlogs: list
-  })
 
+app.get('/pull', async (req: Request, res: Response) => {
+  const results = await db.collection('Blogs').find().toArray()
+  // console.log(results)
+  res.render('userblogs/userblogs', { items: results })
 })
 
 
