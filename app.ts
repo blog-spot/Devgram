@@ -138,7 +138,7 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 
 
 })
-// PREV CODE 
+// PREV CODE
 
 // app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
 //   // db collection find.one
@@ -158,7 +158,7 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 //   })
 
 
-app.get('/pull', async (req: Request, res: Response) => {
+app.get('/profile/Blogs', async (req: Request, res: Response) => {
   const results = await db.collection('Blogs').find().toArray()
   // console.log(results)
   res.render('userblogs/userblogs', { items: results })
