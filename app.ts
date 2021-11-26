@@ -69,10 +69,12 @@ app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/fonts' , express.static(__dirname + 'public/fonts'))
 app.use('/img' , express.static(__dirname + 'public/img'))
 app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
-app.use('/css1', express.static(__dirname + 'public/css1'))
-app.use('/bootstrap1', express.static(__dirname + 'public/bootstrap1'))
-app.use('/img1', express.static(__dirname + 'public/img1'))
 
+// // app
+// app.use(express.static('writeblogPub'))
+// app.use('/css1' , express.static(__dirname + 'writeblogPub/css1'))
+// app.use('/bootstrap1' , express.static(__dirname + 'writeblogPub/bootstrap1/'))
+// app.use('/img1', express.static(__dirname + 'public/img1'))
 
 
 // setting up another set of static files 
