@@ -165,6 +165,7 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 //   })
 
 
+
 app.get('/profile/Blogs',isLoggedIn,  async (req: Request, res: Response) => {
   const results = await db.collection('Blogs').find().toArray()
   // console.log(results)
