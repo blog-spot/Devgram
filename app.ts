@@ -69,11 +69,16 @@ app.use('/css', express.static(__dirname + 'public/css'))
 app.use('/fonts' , express.static(__dirname + 'public/fonts'))
 app.use('/img' , express.static(__dirname + 'public/img'))
 app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
+app.use('/css1', express.static(__dirname + 'public/css1'))
+app.use('/bootstrap1', express.static(__dirname + 'public/bootstrap1'))
+app.use('/img1', express.static(__dirname + 'public/img1'))
+
+
 
 // setting up another set of static files 
-app.use(express.static('profilePub'))
-app.use('/PubCss', express.static(__dirname + 'profilePub/PubCss'))
-app.use('/blogspotCss' , express.static(__dirname + 'profilePub/blogspotCss'))
+// app.use(express.static('profilePub'))
+// app.use('/PubCss', express.static(__dirname + 'profilePub/PubCss'))
+// app.use('/blogspotCss' , express.static(__dirname + 'profilePub/PubCss'))
 
 app.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/error', (req, res) => res.send('Unknown Error'))
