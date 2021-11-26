@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,14 +20,13 @@
 <br/>
     <label>Your name</label>
 
-    <input id='Author' name='Author' required/>
 
     <button type='submit' action="/blogs/sumbit" class="uppercase inline-block float-right mt-2 p-3 md:block md:h-[4rem] md:m-0 md:p-4 bg-[#fff] text-variant-3 rounded-lg outline-none font-semibold hover:opacity-90" >DONE!</button>
 
 
     </form>
 </body>
-</html>
+</html> -->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,15 +47,16 @@
             <!-- FORM CONTRAOL SPACE -->
             <form method="post" action='/blogs/sumbit'>
                 <h2 class="text-center">Write Your Blog</h2>
+             
                 <div class="mb-3">
-                    <input class="form-control" type="text" name="name" placeholder="Name">
-                </div>
-                <div class="mb-3"><input class="form-control is-invalid" type="email" name="email" placeholder="Email" />
-                    <small class="form-text text-danger">Please enter a correct email address.</small>
+                    <input id='Author' name='Author' required placeholder="Your Name"/>
                 </div>
 
 
-                <div class="mb-3"><textarea class="form-control" name="message" placeholder="Message" rows="14"></textarea>
+                <div class="mb-3">
+                    <textarea type='blog' id='blog' name='blog' required placeholder='Your blog' >
+
+                    </textarea>
                 </div>
                 <div class="mb-3">
                     <button class="btn btn-primary" type="submit">send </button>
