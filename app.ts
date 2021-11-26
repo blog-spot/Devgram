@@ -70,6 +70,10 @@ app.use('/fonts' , express.static(__dirname + 'public/fonts'))
 app.use('/img' , express.static(__dirname + 'public/img'))
 app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
 
+// setting up another set of static files 
+app.use(express.static('profilePub'))
+app.use('/PubCss', express.static(__dirname + 'profilePub/PubCss'))
+
 
 app.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/error', (req, res) => res.send('Unknown Error'))
@@ -166,7 +170,6 @@ app.get('/profile/Blogs',isLoggedIn,  async (req: Request, res: Response) => {
   // console.log(results)
   res.render('userblogs/userblogs', { items: results })
 })
-
 
 // app.get('/profile/yourblogs', isLoggedIn, async (req: Request , res: Response) => {
 //   // query the database to fetch all the documents
