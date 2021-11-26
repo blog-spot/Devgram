@@ -73,8 +73,7 @@ app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
 // setting up another set of static files 
 app.use(express.static('profilePub'))
 app.use('/PubCss', express.static(__dirname + 'profilePub/PubCss'))
-
-
+app.use('/blogspotCss' , express.static(__dirname + 'profilePub/blogspotCss'))
 
 app.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/error', (req, res) => res.send('Unknown Error'))
