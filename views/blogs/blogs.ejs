@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Write blogs</title>
-    
+    <link rel="stylesheet" href="blogspotCss/">
+
 </head>
 <body>
     <h1>Write  blogs</h1>
@@ -25,5 +26,45 @@
 
 
     </form>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Write-blogs</title><link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/Brands.css">
+        <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css">
+        <link rel="stylesheet" href="assets/css/styles.css">
+    </head>
+    <body>
+        <section class="contact-clean">
+            <div class="brands">
+
+            </div>
+
+            <!-- FORM CONTRAOL SPACE -->
+            <form method="post" action='/blogs/sumbit'>
+                <h2 class="text-center">Write Your Blog</h2>
+                <div class="mb-3">
+                    <input class="form-control" type="text" name="name" placeholder="Name">
+                </div>
+                <div class="mb-3"><input class="form-control is-invalid" type="email" name="email" placeholder="Email" />
+                    <small class="form-text text-danger">Please enter a correct email address.</small>
+                </div>
+
+
+                <div class="mb-3"><textarea class="form-control" name="message" placeholder="Message" rows="14"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-primary" type="submit">send </button>
+                </div>
+            </form>
+
+
+        </section>
+        <script src="assets/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
