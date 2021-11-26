@@ -75,6 +75,7 @@ app.use(express.static('profilePub'))
 app.use('/PubCss', express.static(__dirname + 'profilePub/PubCss'))
 
 
+
 app.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/error', (req, res) => res.send('Unknown Error'))
 app.get('/api/google/account', passport.authenticate('google', { failureRedirect: '/auth/error' }),
