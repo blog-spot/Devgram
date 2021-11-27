@@ -145,6 +145,7 @@ app.post('/blogs/sumbit', isLoggedIn, (req: Request, res:Response)=> {
 
 
 })
+// deply code setup
 // PREV CODE
 
 // app.get('/profile/yourblogs' , isLoggedIn , (req: Request , res: Response)=> {
