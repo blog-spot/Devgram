@@ -1,50 +1,115 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Write blogs</title>
-    <link rel="stylesheet" href="blogspotCss/">
 
-</head>
-<body>
-    <h1>Write  blogs</h1>
-
-    <form method="post" action='/blogs/sumbit'>
-
-    <textarea type='blog' id='blog' name='blog' required >
-
-    </textarea>
-
-<br/>
-    <label>Your name</label>
-
-
-    <button type='submit' action="/blogs/sumbit" class="uppercase inline-block float-right mt-2 p-3 md:block md:h-[4rem] md:m-0 md:p-4 bg-[#fff] text-variant-3 rounded-lg outline-none font-semibold hover:opacity-90" >DONE!</button>
-
-
-    </form>
-</body>
-</html> -->
 
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <title>Write-blogs</title><link rel="stylesheet" href="bootstrap1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="css1/Brands.css">
-        <link rel="stylesheet" href="css1/Contact-Form-Clean.css">
-        <link rel="stylesheet" href="css1/styles.css">
+        <title>Write-blogs</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+        
+        <!-- <link rel="stylesheet" href="assets/css/Brands.css"> -->
+        <!-- <link rel="stylesheet" href="assets/css/Contact-Form-Clean.css"> -->
+        <!-- <link rel="stylesheet" href="assets/css/styles.css"> -->
     </head>
+    <style>
+        .brands{color:#313437;background-color:#fff}.brands a{display:block;text-align:center;padding:40px 0}.brands a img{display:inline-block;margin:10px 20px;vertical-align:middle}.contact-clean{background:#f1f7fc;padding:80px 0}.contact-clean form{max-width:480px;width:90%;margin:0 auto;background-color:#fff;padding:40px;border-radius:4px;color:#505e6c;box-shadow:1px 1px 5px rgba(0,0,0,.1)}@media (max-width:767px){.brands a{padding:30px 0}.contact-clean{padding:20px 0}.contact-clean form{padding:30px}}.contact-clean h2{margin-top:5px;font-weight:700;font-size:28px;margin-bottom:36px;color:inherit}.contact-clean form .form-control{background:#fff;border-radius:2px;box-shadow:1px 1px 1px rgba(0,0,0,.05);outline:0;color:inherit;padding-left:12px;height:42px}.contact-clean form .form-control:focus{border:1px solid #b2b2b2}.contact-clean form textarea.form-control{min-height:100px;max-height:260px;padding-top:10px;resize:vertical}.contact-clean form .btn{padding:16px 32px;border:none;background:0 0;box-shadow:none;text-shadow:none;opacity:.9;text-transform:uppercase;font-weight:700;font-size:13px;letter-spacing:.4px;line-height:1;outline:0!important}.contact-clean form .btn:hover{opacity:1}.contact-clean form .btn:active{transform:translateY(1px)}.contact-clean form .btn-primary{background-color:#055ada!important;margin-top:15px;color:#fff}
+        .contact-clean {
+  background: #f1f7fc;
+  padding: 80px 0;
+}
+
+@media (max-width:767px) {
+  .contact-clean {
+    padding: 20px 0;
+  }
+}
+
+.contact-clean form {
+  max-width: 480px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 4px;
+  color: #505e6c;
+  box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+@media (max-width:767px) {
+  .contact-clean form {
+    padding: 30px;
+  }
+}
+
+.contact-clean h2 {
+  margin-top: 5px;
+  font-weight: bold;
+  font-size: 28px;
+  margin-bottom: 36px;
+  color: inherit;
+}
+
+.contact-clean form .form-control {
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px rgba(0,0,0,0.05);
+  outline: none;
+  color: inherit;
+  padding-left: 12px;
+  height: 42px;
+}
+
+.contact-clean form .form-control:focus {
+  border: 1px solid #b2b2b2;
+}
+
+.contact-clean form textarea.form-control {
+  min-height: 100px;
+  max-height: 260px;
+  padding-top: 10px;
+  resize: vertical;
+}
+
+.contact-clean form .btn {
+  padding: 16px 32px;
+  border: none;
+  background: none;
+  box-shadow: none;
+  text-shadow: none;
+  opacity: 0.9;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 0.4px;
+  line-height: 1;
+  outline: none !important;
+}
+
+.contact-clean form .btn:hover {
+  opacity: 1;
+}
+
+.contact-clean form .btn:active {
+  transform: translateY(1px);
+}
+
+.contact-clean form .btn-primary {
+  background-color: #055ada !important;
+  margin-top: 15px;
+  color: #fff;
+}
+
+
+
+    </style>
     <body>
         <section class="contact-clean">
             <div class="brands">
 
             </div>
 
-            <!-- FORM CONTRAOL SPACE -->
             <form method="post" action='/blogs/sumbit'>
                 <h2 class="text-center">Write Your Blog</h2>
              
@@ -65,6 +130,8 @@
 
 
         </section>
-        <script src="bootstrap1/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>
+

@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "..\\blogs-webapp"
+		},
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\DevgramApi"
+		},
+		{
+			"path": "..\\learning-ts"
+		}
+	],
+	"settings": {
+	}
+}

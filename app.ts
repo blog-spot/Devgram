@@ -70,17 +70,9 @@ app.use('/fonts' , express.static(__dirname + 'public/fonts'))
 app.use('/img' , express.static(__dirname + 'public/img'))
 app.use('/bootstrap' , express.static(__dirname + 'public/bootstrap'))
 
-// // app
-// app.use(express.static('writeblogPub'))
-// app.use('/css1' , express.static(__dirname + 'writeblogPub/css1'))
-// app.use('/bootstrap1' , express.static(__dirname + 'writeblogPub/bootstrap1/'))
-// app.use('/img1', express.static(__dirname + 'public/img1'))
+app.use('/assets/css' , express.static(__dirname + 'public/assets/css'))
+app.use('/assets/bootstrap' , express.static(__dirname + 'public/assets/bootstrap'))
 
-
-// setting up another set of static files 
-// app.use(express.static('profilePub'))
-// app.use('/PubCss', express.static(__dirname + 'profilePub/PubCss'))
-// app.use('/blogspotCss' , express.static(__dirname + 'profilePub/PubCss'))
 
 app.get('/auth', passport.authenticate('google', { scope: ['profile', 'email'] }));
 app.get('/auth/error', (req, res) => res.send('Unknown Error'))
@@ -108,6 +100,7 @@ app.get('/' , (req: Request, res: Response) => {
         })
     })
 })
+
 
 // export class CRequest extends Request {
 //   user?: string;
