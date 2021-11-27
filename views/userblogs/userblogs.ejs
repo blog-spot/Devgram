@@ -10,12 +10,19 @@
       .blogs-data{
         text-align: center;
         align-items: center;
-        margin-left:30%;
-        
+        margin-left:40%;
+
+      }
+      div{
+        padding-bottom: 10%;
       }
 
       h1{
         text-align: center;
+      }
+
+      .main-card{
+        padding-bottom:10%;
       }
       
     </style>
@@ -23,7 +30,7 @@
   <body>
     <h1>Blogs</h1>
     <!-- card strucutre -->
-    <div>
+    <div class='main-card'>
     <% items.forEach(function(doc) { %>
 
     <div class="card blogs-data" style="width: 18rem;">
@@ -33,11 +40,11 @@
         <!-- card title -->
           <h5 class='card-title'>
             A blog by
-            <%= doc.Username%>
-            ...
+            <%= doc.Username%>..
           </h5>
 
         <p class="card-text">
+          Content:
           <%= doc.userBlog%>
         </p>
       </div>
