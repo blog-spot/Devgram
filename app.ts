@@ -1,3 +1,5 @@
+require('dotenv').config
+
 declare global {
   namespace Express {
       interface User {
@@ -22,7 +24,6 @@ declare global{
 
 
 import express, {Request,Response,Application, NextFunction} from 'express';
-require('dotenv').config
 import * as fs from 'fs';
 var bodyParser = require('body-parser');
 const app:Application = express();
